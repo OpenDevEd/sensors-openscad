@@ -18,6 +18,13 @@ $fa = 1;
 $fs = 0.4;
 // number of fragments 
 $fn = 48; 
+
+
+sensor(
+    number=+8,
+    showcol=true,
+    mountabove=false,
+    diameterfraction=1);
     
 module sensor(type_in="", 
     number=0,
@@ -191,11 +198,6 @@ module sensor(type_in="",
 };
 
 
-sensor(
-    number=+3,
-    showcol=true,
-    mountabove=false,
-    diameterfraction=1);
 /*
 // Pimoroni Garden
 module sensor_ltr559(punch=false, both=false) {
