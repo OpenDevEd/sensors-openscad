@@ -24,9 +24,9 @@ module header_demo() {
     translate([20,0,0]) pin_header(10,2);
 };
 
-module pin_header(rows=5,cols=2,pitch=2.54){
-    offsety=-1*((rows-1)/2*pitch);
-    offsetx=-1*((cols-1)/2*pitch);
+module pin_header(rows=5,cols=2,pitch=2.54,center=true){
+  offsety= center ? -1*((rows-1)/2*pitch) : 0;
+  offsetx= center ? -1*((cols-1)/2*pitch) : 0;
     translate([offsetx,offsety,0])
     union(){
         for(j=[0:1:cols-1]){
