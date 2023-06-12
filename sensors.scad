@@ -19,12 +19,55 @@ $fs = 0.4;
 // number of fragments 
 $fn = 48; 
 
+ sensor_demo();
+// snsor_mount_demo();
 
-sensor(
-    number=+8,
-    showcol=true,
-    mountabove=false,
-    diameterfraction=1);
+module sensor_demo() {
+    
+    translate([0,0,0]) sensor(
+        number=1,
+        showsensor=true,
+        showcol=true,
+        diameter="", 
+        diameterfraction="",
+        makeheader=true, 
+        mountabove=false, 
+        makelabel=true,
+        showcube=true    
+        );
+    
+    translate([40,0,0]) sensor(
+        number=6,
+        showsensor=true,
+        showcol=true,
+        diameter="", 
+        diameterfraction="",
+        makeheader=true, 
+        mountabove=false, 
+        makelabel=true,
+        showcube=true    
+        );
+};
+
+module sensor_mount_demo() {
+    difference() {
+        translate([-20,-20,0])  cube([50,50,2]);  
+        {
+        translate([0,0,0]) sensor(
+            number=1,
+            showsensor=false,
+            showcol=true,
+            diameter="", 
+            diameterfraction="",
+            makeheader=true, 
+            mountabove=false, 
+            makelabel=true,
+            showcube=true    
+        );
+        };
+    };      
+};
+
     
 module sensor(type_in="", 
     number=0,
@@ -36,7 +79,7 @@ module sensor(type_in="",
     centeronheader=true,
     extruder="", extrude="", 
     makelabel=true, labelsize=3,
-    showcube=true) {
+    showcube=false) {
 
     // sensorspec = getsensorspec();
  
